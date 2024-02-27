@@ -1,0 +1,25 @@
+<div class="center">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Country</th>
+                <th>Population</th>
+                <th>Capital</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries">
+                <td> {{ country.id }}</td>
+                <td> {{ country.country }}</td>
+                <td> {{ country.population }}</td>
+                <td> {{ country.capital }}</td>
+                <td>
+                    <button (click)="update()"> UPDATE </button>
+                    <button (click)="delete()"> DELETE </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
