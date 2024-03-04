@@ -1,6 +1,6 @@
 export interface CountryModel{
     id:number,
-    country: string,
+    countryName: string,
     capital: string,
     population: number
 }

@@ -1,9 +1,10 @@
-table{
-    border: 1px solid black;
-}
-
-.center{
+.card{
     margin: auto;
     width: 50%;
     padding: 10px;
+}
+
+#add-button{
+    float: right;
+    margin: 10px 10px 10px 10px;
 }
