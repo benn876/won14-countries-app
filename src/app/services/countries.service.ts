@@ -12,7 +12,7 @@ export class CountriesService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<any> {
-    return this.httpClient.get(this.url)
+    return this.httpClient.get(this.url);
   }
 
   addCountry(request: CountryModel): Observable<any>{
@@ -20,6 +20,11 @@ export class CountriesService {
   }
 
   deleteCountry(id: string): Observable<any>{
-    return this.httpClient.delete(this.url + "/" + id)
+    return this.httpClient.delete(this.url + "/" + id);
+  }
+
+  updateCountry(id: string, request:CountryModel): Observable<any>{
+    console.log(this.url + "/" + id);
+    return this.httpClient.put(this.url + "/" + id, request);
   }
 }

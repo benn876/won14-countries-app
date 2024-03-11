@@ -39,18 +39,23 @@ export class CountriesComponent implements AfterViewInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  openDialog(): void{
+  openDialog(country?: CountryModel): void{
     const dialogRef = this.dialog.open(CountryFormDialogComponent, {
       width: '500px',
       backdropClass: 'custom-dialog-backdrop-class',
       panelClass: 'custom-dialog-panel-class',
-      data: 'Some data'
+      data: country
     });
 
     dialogRef.afterClosed().subscribe(res=>{
       console.log(res)
-      this.countriesService.addCountry(res.data).subscribe();
-      location.reload();
+      if(res.event === 'add'){
+        this.countriesService.addCountry(res.data).subscribe();
+      } else if(res.event === 'update'){
+        if(country){
+          this.countriesService.updateCountry(country.id.toString(), res.data).subscribe();
+        }
+      }
     })
   }
 
